@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Data.Entity;
+using ContosoUniversity.Models;
+using ContosoUniversity.DAL;
 
 namespace ContosoUniversity
 {
@@ -31,6 +34,8 @@ namespace ContosoUniversity
 
         protected void Application_Start()
         {
+            Database.SetInitializer<SchoolContext>(new SchoolInitializer());
+
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
